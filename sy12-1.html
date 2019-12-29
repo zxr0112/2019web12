@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>sy2-1</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			li {
+				list-style: none;
+			}
+
+			i {
+				font-style: normal;
+			}
+
+			#wrap {
+				position: relative;
+				width: 600px;
+				height: 700px;
+				margin: 50px auto;
+			}
+
+			.title,
+			.num {
+				position: absolute;
+				width: 100%;
+				left: 0;
+				line-height: 30px;
+				text-align: center;
+				z-index: 99;
+				color: #fff;
+				background-color: rgba(0, 0, 0, .5);
+			}
+
+			.num {
+				top: 0;
+			}
+
+			.title {
+				bottom: 0;
+			}
+
+			ul li {
+				position: absolute;
+				display: none;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 400px;
+			}
+
+			ul li.on {
+				display: block;
+			}
+
+			ul li img {
+				width: 100%;
+				height: 100%;
+				overflow: hidden;
+			}
+
+			.btn span {
+				position: absolute;
+				padding: 15px 10px;
+				color: #fff;
+				top: 50%;
+				background-color: rgba(0, 0, 0, .5);
+				cursor: pointer;
+			}
+
+			.btn .left {
+				left: 0;
+			}
+
+			.btn .right {
+				right: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrap">
+			<div class="num">VA-11 Hall-A: Cyberpunk Bartender Action——第<i>一</i>位人物</div>
+			<ul>
+				<li class="on"><img src="images/Heaven.jpg" alt=""></li>
+				<li><img src="images/Beast.jpg" alt=""></li>
+				<li><img src="images/Animal.jpg" alt=""></li>
+				<li><img src="images/Starve.jpg" alt=""></li>
+				<li><img src="images/World.jpg" alt=""></li>
+				<li><img src="images/Inferno.jpg" alt=""></li>
+				<li><img src="images/Demon.jpg" alt=""></li>
+			</ul>
+			<div class="btn">
+				<span class="left"> &lt; </span>
+				<span class="right"> &gt; </span>
+			</div>
+			<div class="title">Jill</div>
+		</div>
+		<script>
+			let aLi = document.getElementsByTagName("li"),
+				aSpan = document.getElementsByTagName("span"), 
+				oTitle = document.getElementsByClassName("title")[0], 
+				oI = document.getElementsByTagName("i")[0],
+				length = aLi.length, 
+				i = 0,
+				arr1 = ["一", "二", "三", "四", "五", "六","七"],
+				arr2 = ["Heaven","Beast", "Animal", "Starve", "World", "Inferno", "Demon"];
+			aSpan[1].onclick = function() { 
+				aLi[i].className = ""; 
+				i++;
+				if (i >= length) { 
+					i = 0;
+				}
+				aLi[i].className = "on"; 
+				oI.innerHTML = arr1[i]; 
+				oTitle.innerHTML = arr2[i]; 
+			}
+			aSpan[0].onclick = function() { 
+				aLi[i].className = "";
+				i--;
+				if (i < 0) { 
+					i = length - 1;
+				}
+				aLi[i].className = "on";
+				oI.innerHTML = arr1[i];
+				oTitle.innerHTML = arr2[i];
+			}
+		</script>
+	</body>
+</html>
